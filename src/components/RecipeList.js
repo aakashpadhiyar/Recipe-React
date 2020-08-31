@@ -1,5 +1,5 @@
 import React from 'react'
-import Recipe from './components/Recipe'
+import Recipe from './Recipe'
 
 export default function RecipeList({ recipes }) {
     return (
