@@ -1,7 +1,16 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import RecipeIngredientEdit from './RecipeIngredientEdit'
+import { RecipeContext } from './App'
 
 export default function RecipeEdit({recipe}) {
+    const { handleRecipeChange } = useContext(RecipeContext)
+
+
+    function handleChange(changes) {
+        handleRecipeChange(recipe.id, {...recipe, ...changes})
+    }
+
+
     return (
         <div className="recipe-edit">
             <div className="recipe-edit__remove-button-container">
@@ -20,6 +29,7 @@ export default function RecipeEdit({recipe}) {
                     name="name"
                     id="name"
                     value={recipe.name}
+                    onInput={e => handleChange({ name: e.target.value })}
                     className="recipe-edit__input" />
                 
                 <label 
