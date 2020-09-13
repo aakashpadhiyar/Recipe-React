@@ -3,7 +3,8 @@ import React from 'react'
 export default function RecipeIngredientEdit(props) {
     const {
         ingredient,
-        handleIngredientChange
+        handleIngredientChange,
+        handleIngredientDelete
     } = props
 
     function handleChange(changes) {
@@ -15,16 +16,18 @@ export default function RecipeIngredientEdit(props) {
           <input 
             className="recipe-edit__input" 
             type="text"
-            onInput={(e) => handleChange({ name: e.target.value})}
+            onChange={(e) => handleChange({ name: e.target.value})}
             value={ingredient.name} />  
           
           <input 
             class="recipe-edit__input" 
             type="text" 
-            onInput={(e) => handleChange({ amount: e.target.value})}
+            onChange={(e) => handleChange({ amount: e.target.value})}
             value={ingredient.amount}/>
 
-          <button className="btn btn--danger">&times;</button>
+          <button 
+            onClick={() => handleIngredientDelete(ingredient.id)}
+            className="btn btn--danger">&times;</button>
         </>
     )
 }
