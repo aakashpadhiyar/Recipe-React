@@ -3,7 +3,7 @@ import { RecipeContext } from './App'
 import IngredientList from './IngredientList'
 export default function Recipe(props) {
 
-    const { handleRecipeDelete } = useContext(RecipeContext)
+    const { handleRecipeDelete, handleRecipeSelect } = useContext(RecipeContext)
     const {
         id,
         name,
@@ -17,12 +17,16 @@ export default function Recipe(props) {
             <div className="recipe__header">
                 <h3 className="recipe__title">{name}</h3>
                 <div>
-                    <button className="btn btn--primary mr-1">Edit</button>
+                    <button 
+                        className="btn btn--primary mr-1"
+                        onClick={() => handleRecipeSelect(id)}>
+
+                        Edit
+                    </button>
                     <button
                         className="btn btn--danger"
                         onClick={handleRecipeDelete}
-                        onClick={() => handleRecipeDelete(id)}
-                    >
+                        onClick={() => handleRecipeDelete(id)}>
                         Delete
                         </button>
                 </div>
