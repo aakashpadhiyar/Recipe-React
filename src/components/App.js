@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import RecipeList from './RecipeList'
 import '../css/app.css'
 import uuid from 'react-uuid'
+import RecipeEdit from './RecipeEdit'
+
 
 export const RecipeContext = React.createContext()
 
@@ -48,6 +50,7 @@ function App() {
   return (
     <RecipeContext.Provider value={recipeContextValue}>
       <RecipeList recipes={recipes} />
+      <RecipeEdit />
     </RecipeContext.Provider>
 
   )
